@@ -1,8 +1,14 @@
+import type { Metadata } from "next";
 import { IsUp } from "@/components/is-up";
 import { Status } from "@/lib/types/status";
 
 const GITHUB_STATUS_ENDPOINT =
   "https://www.githubstatus.com/api/v2/status.json";
+
+export const metadata: Metadata = {
+  title: "Live Status",
+  description: "Check whether GitHub is up, degraded, or down right now.",
+};
 
 type GitHubStatusResponse = {
   status?: {
