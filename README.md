@@ -20,4 +20,4 @@ Open `http://localhost:3000`.
 
 ## Screenshot
 
-![App screenshot](./public/screenshot-placeholder.png)
+![App screenshot](https://github.com/paulbgtr/gitok/blob/main/public/screenshot.png)
