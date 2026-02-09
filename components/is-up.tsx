@@ -1,8 +1,9 @@
 import { cn } from "@/lib/utils";
+import { Status } from "@/lib/types/status";
 
 type IsUpProps = {
   serviceName?: string;
-  status: "up" | "partial" | "down";
+  status: Status;
   subtext?: string;
 };
 

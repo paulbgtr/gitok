@@ -1,4 +1,5 @@
 import { IsUp } from "@/components/is-up";
+import { Status } from "@/lib/types/status";
 
 const GITHUB_STATUS_ENDPOINT =
   "https://www.githubstatus.com/api/v2/status.json";
@@ -10,7 +11,10 @@ type GitHubStatusResponse = {
   };
 };
 
-async function getGitHubStatus() {
+async function getGitHubStatus(): Promise<{
+  status: Status;
+  description: string;
+}> {
   try {
     const response = await fetch(GITHUB_STATUS_ENDPOINT, {
       next: { revalidate: 60 },
@@ -23,11 +27,7 @@ async function getGitHubStatus() {
     const data = (await response.json()) as GitHubStatusResponse;
     const indicator = data.status?.indicator ?? "major";
     const status =
-      indicator === "none"
-        ? "up"
-        : indicator === "minor"
-          ? "partial"
-          : "down";
+      indicator === "none" ? "up" : indicator === "minor" ? "partial" : "down";
 
     return {
       status,
