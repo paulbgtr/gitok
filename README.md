@@ -13,7 +13,7 @@ Status data comes from:
 ## Run locally
 
 ```bash
-npm run dev
+bun run dev
 ```
 
 Open `http://localhost:3000`.
